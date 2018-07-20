@@ -8,3 +8,5 @@ class DatabaseWants(ndb.Model):
 
 class DatabaseBought(ndb.Model):
 	value = nab.StringProperty()
+
+use value and catagory after giving add buttons different key values 
