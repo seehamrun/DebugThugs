@@ -4,8 +4,97 @@
         <title>
             Computer Science Summer Institute
         </title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+        <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     </head>
     <body>
-        <h1>Insert Heading Here</h1>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <a class="navbar-brand" href="index.html"><img src="icon.png" height=50px width=50px/></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="checklist.html">Checklist</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="search.html">Search</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                      </ul>
+                      <form class="form-inline my-2 my-lg-0" method="post">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                      </form>
+                    </div>
+                  </nav>
+        <div class='container'>
+                <form>
+                        <div class="form-row">
+                          <div class="col-md-4 mb-3">
+                            <label for="validationServer01">First name</label>
+                            <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" value="Mark" required>
+                            <div class="valid-feedback">
+                              Looks good!
+                            </div>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="validationServer02">Last name</label>
+                            <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="Otto" required>
+                            <div class="valid-feedback">
+                              Looks good!
+                            </div>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="validationServerUsername">Username</label>
+                            <div class="input-group">
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                              </div>
+                              <input type="text" class="form-control is-invalid" id="validationServerUsername" placeholder="Username" aria-describedby="inputGroupPrepend3" required>
+                              <div class="invalid-feedback">
+                                Please choose a username.
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                          <div class="col-md-6 mb-3">
+                            <label for="validationServer03">City</label>
+                            <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="City" required>
+                            <div class="invalid-feedback">
+                              Please provide a valid city.
+                            </div>
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label for="validationServer04">State</label>
+                            <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="State" required>
+                            <div class="invalid-feedback">
+                              Please provide a valid state.
+                            </div>
+                          </div>
+                          <div class="col-md-3 mb-3">
+                            <label for="validationServer05">Zip</label>
+                            <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="Zip" required>
+                            <div class="invalid-feedback">
+                              Please provide a valid zip.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit form</button>
+                      </form>
+        </div>
+        <h1>Login</h1>
     </body>
 </html>
