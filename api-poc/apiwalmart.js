@@ -1,5 +1,5 @@
 var Walmart_apiKey ="ney58wdjgyubyjwpmrsfysyg";
-function queryGiphy(query, resultCallback) {
+function queryWalmart(query, resultCallback) {
   // http://api.walmartlabs.com/v1/search?query=ipod&format=json&apiKey=ney58wdjgyubyjwpmrsfysyg
 
 
@@ -31,6 +31,6 @@ window.addEventListener('load', () => {
   document.querySelector('#submit').addEventListener("click", () => {
     var inputBox = document.querySelector('#queryBox')
     var userInput = inputBox.value
-    queryGiphy(userInput, displayResult)
+    queryWalmart(userInput, displayResult)
   })
 })
