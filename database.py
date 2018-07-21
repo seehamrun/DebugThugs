@@ -1,10 +1,10 @@
 from google.appengine.ext import ndb
 
 class DatabaseNeeds(ndb.Model):
-	value = nab.StringProperty()
+	value = ndb.StringProperty()
 
 class DatabaseWants(ndb.Model):
-	value = nab.StringProperty()
+	value = ndb.StringProperty()
 
 class DatabaseBought(ndb.Model):
-	value = nab.StringProperty()
+	value = ndb.StringProperty()

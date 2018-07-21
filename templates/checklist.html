@@ -38,5 +38,61 @@
                     </div>
                   </nav>
         <h1>Checklist</h1>
+        <div>
+          <table>
+            <tr>
+              <td>Want</td>
+              <td>Remove Control<td>
+            </tr>
+            {% for want in wantsList %}
+            <tr>
+              <td>{{want.value}}</td>
+              <td><input type= "Remove" value= yes></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+
+        <div>
+          <table>
+            <tr>
+              <td>Need</td>
+              <td>Remove Control<td>
+            </tr>
+            {% for need in needsList %}
+            <tr>
+              <td>{{need.value}}</td>
+              <td><input type= "Remove" value= yes></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+
+        <div>
+          <table>
+            <tr>
+              <td>Bought</td>
+              <td>Remove Control<td>
+            </tr>
+            {% for bought in boughtList %}
+            <tr>
+              <td>{{bought.value}}</td>
+              <td><input type= "Remove" value= yes></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <form>
+          <div> TO ADD <input type = "text" name="add" value= "{{value}}"></div>
+                <select name= "choice">
+                    <option value="want">WANT</option>
+                    <option value="need">NEED</option>
+                    <option value="bought">BOUGHT</option>
+                </select>
+                <div><input type = "SUBMIT"></div>
+              <div
+          </form>
     </body>
+
+
 </html>
