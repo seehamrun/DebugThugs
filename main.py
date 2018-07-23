@@ -46,6 +46,7 @@ class ChecklistHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
     ('/login', LoginPageHandler),
+    ('/view_item', ViewItemHandler),
     ('/search', SearchHandler),
     ('/checklist', ChecklistHandler)
 ], debug=True)
