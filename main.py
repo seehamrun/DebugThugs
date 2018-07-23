@@ -50,3 +50,4 @@ app = webapp2.WSGIApplication([
     ('/login', LoginPageHandler),
     ('/search', SearchHandler),
     ('/checklist', ChecklistHandler)
+], debug=True)
