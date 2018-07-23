@@ -44,9 +44,8 @@
               <td>Want</td>
               <td>Remove Control<td>
             </tr>
-
-            {% for want in wantsList %}
             <tr>
+              {% for want in wantsList %}
               <td>{{want.value}}</td>
               <td><input type= "Remove" value= yes></td>
             </tr>
@@ -60,8 +59,8 @@
               <td>Need</td>
               <td>Remove Control<td>
             </tr>
-            {% for need in needsList %}
             <tr>
+              {% for need in needsList %}
               <td>{{need.value}}</td>
               <td><input type= "Remove" value= yes></td>
             </tr>
@@ -75,8 +74,8 @@
               <td>Bought</td>
               <td>Remove Control<td>
             </tr>
-            {% for bought in boughtList %}
             <tr>
+              {% for bought in boughtList %}
               <td>{{bought.value}}</td>
               <td><input type= "Remove" value= yes></td>
             </tr>
