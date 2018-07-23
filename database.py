@@ -7,8 +7,4 @@ class DatabaseWants(ndb.Model):
 	value = ndb.StringProperty()
 
 class DatabaseBought(ndb.Model):
-<<<<<<< HEAD
-	value = ndb.StringProperty()
-=======
-
 	value = ndb.StringProperty()
