@@ -7,8 +7,6 @@ class DatabaseWants(ndb.Model):
 	value = ndb.StringProperty()
 
 class DatabaseBought(ndb.Model):
-<<<<<<< HEAD
-	value = ndb.StringProperty()
-=======
+	value = nab.StringProperty()
 
-	value = ndb.StringProperty()
+use value and catagory after giving add buttons different key values 
