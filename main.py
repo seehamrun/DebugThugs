@@ -36,20 +36,19 @@ class ChecklistHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/checklist.html')
         values= {
-        "wants": database.DatabaseWants.query().fetch(),
-        "needs": database.DatabaseNeeds.query().fetch(),
-        "bought": database.DatabaseBought.query().fetch()
+        "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
+        "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need").fetch(),
+        "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
         }
+
         self.response.write(response_html.render(values))
     def post(self):
         item = self.request.get('item')
         typeSelector = self.request.get('choice')
         self.response.headers['Content-Type'] = 'text/html'
-        stored_items = database.DatabaseEntry(type= typeSelector, value= item)
+        stored_items = database.DatabaseEntry(type= typeSelector, values= item)
         self.response.write(item)
         stored_items.put()
-
-
 
 
 app = webapp2.WSGIApplication([
