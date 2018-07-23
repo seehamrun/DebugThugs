@@ -9,5 +9,5 @@ class DatabaseWants(ndb.Model):
 class DatabaseBought(ndb.Model):
 	value = ndb.StringProperty()
 
-use value and catagory after giving add buttons different key values
->>>>>>> a49925f9b6e3d54b05b46ba375e8b5d336c2acf9
+# use value and catagory after giving add buttons different key values
+# >>>>>>> a49925f9b6e3d54b05b46ba375e8b5d336c2acf9
