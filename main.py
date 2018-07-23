@@ -47,6 +47,7 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.write(response_html.render())
     #def post(self):
 
+# nkdvkjs
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
@@ -66,15 +67,6 @@ class ChecklistHandler(webapp2.RequestHandler):
         "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
         }
         self.response.write(response_html.render(values))
-
-    def post(self):
-        item = self.request.get('item')
-        typeSelector = self.request.get('choice')
-        self.response.headers['Content-Type'] = 'text/html'
-        stored_items = database.DatabaseEntry(type= typeSelector, value= item)
-        stored_items.put()
-        response_html= jinja_env.get_template('templates/added.html')
-        self.response.write(response_html.render())
 
 class DeleteItemHandler(webapp2.RequestHandler):
     def get(self):
