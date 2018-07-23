@@ -11,7 +11,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
         <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     </head>
-    <body>
+    <body style='background-color:wheat'>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <a class="navbar-brand" href="index.html"><img src="icon.png" height=50px width=50px/></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,8 +38,34 @@
                       </form>
                     </div>
                   </nav>
-                  
-                  <div class="shadow p-3 mb-5 bg-white rounded" width=700px>
+
+                  <div class="shadow p-3 mb-5 bg-gray rounded" width=700px>
+                      <h1 style='text-align: center'>Sign Up!</h1>
+                          <form>
+                              <div class="form-group">
+                                  <label for="exampleInputName1">Name</label>
+                                  <input type="name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter your name">
+                                  <small id="nameHelp" class="form-text text-muted">Be appropriate!</small>
+                                </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleInputPassword1">Re-enter Password</label>
+                                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    </div>
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                    </div>
+
+                  <div class="shadow p-3 mb-5 bg-gray rounded" width=250px>
+                    <h1 style='text-align: center'>Login!</h1>
                         <form>
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Email address</label>
@@ -50,15 +76,10 @@
                                   <label for="exampleInputPassword1">Password</label>
                                   <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                                 </div>
-                                <div class="form-group form-check">
-                                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                               </form>
                   </div>
-                  <button type="button" class="btn btn-primary btn-circle btn-xl"><i class="fa fa-list"></i>
-                  </button>
+                  <button type="button" class="btn btn-outline-secondary" height="250px" width="500px"><img src="googlelogo.png"/></button>
                       
     </body>
 </html>
