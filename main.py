@@ -46,6 +46,7 @@ class ChecklistHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         self.response.write(add)
         stored_item = database.DatabaseDog(name=dogName
+    # whate
 
 
 app = webapp2.WSGIApplication([
