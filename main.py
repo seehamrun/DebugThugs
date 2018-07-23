@@ -47,6 +47,7 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.write(response_html.render())
     #def post(self):
 
+# nkdvkjs
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
