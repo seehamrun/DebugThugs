@@ -2,7 +2,9 @@ import webapp2
 import jinja2
 import os
 from google.appengine.ext import ndb
+
 import database
+
 
 jinja_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -20,19 +22,24 @@ class LoginPageHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/login.html')
         self.response.write(response_html.render())
-    def post(self):
+    #def post(self):
 
 class ViewItemHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/search.html')
         self.response.write(response_html.render())
-    def post(self):
-        
+    #def post(self):
+
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/checklist.html')
+        values= {
+        "wants": database.DatabaseWants.query().fetch()
+        "needs": database.DatabaseNeeds.query().fetch()
+        "bought": database.DatabaseBought.query().fetch()
+        }
         self.response.write(response_html.render())
 
 app = webapp2.WSGIApplication([

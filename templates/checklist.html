@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            Computer Science Summer Institute
+            Dorm Room Essentials Checklist
         </title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -37,6 +37,70 @@
                       </form>
                     </div>
                   </nav>
-        <h1>Checklist</h1>
+<<<<<<< HEAD
+        <h1 align="center">Checklist</h1>
+    <div>
+
+    </div>
     </body>
+=======
+        <h1>Checklist</h1>
+        <div>
+          <table>
+            <tr>
+              <td>Want</td>
+              <td>Remove Control<td>
+            </tr>
+            {% for want in wantsList %}
+            <tr>
+              <td>{{want.value}}</td>
+              <td><input type= "Remove" value= yes></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+
+        <div>
+          <table>
+            <tr>
+              <td>Need</td>
+              <td>Remove Control<td>
+            </tr>
+            {% for need in needsList %}
+            <tr>
+              <td>{{need.value}}</td>
+              <td><input type= "Remove" value= yes></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+
+        <div>
+          <table>
+            <tr>
+              <td>Bought</td>
+              <td>Remove Control<td>
+            </tr>
+            {% for bought in boughtList %}
+            <tr>
+              <td>{{bought.value}}</td>
+              <td><input type= "Remove" value= yes></td>
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <form>
+          <div> TO ADD <input type = "text" name="add" value= "{{value}}"></div>
+                <select name= "choice">
+                    <option value="want">WANT</option>
+                    <option value="need">NEED</option>
+                    <option value="bought">BOUGHT</option>
+                </select>
+                <div><input type = "SUBMIT"></div>
+              <div
+          </form>
+    </body>
+
+
+>>>>>>> bebd10d42dea7c9dc9e126a369527106ccb9baa9
 </html>
