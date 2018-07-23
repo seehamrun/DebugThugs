@@ -46,9 +46,9 @@ class ChecklistHandler(webapp2.RequestHandler):
         item = self.request.get('item')
         typeSelector = self.request.get('choice')
         self.response.headers['Content-Type'] = 'text/html'
-        stored_items = database.DatabaseEntry(type= typeSelector, values= item)
-        self.response.write(item)
+        stored_items = database.DatabaseEntry(type= typeSelector, value= item)
         stored_items.put()
+
 
 
 app = webapp2.WSGIApplication([

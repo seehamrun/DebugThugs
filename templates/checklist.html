@@ -82,14 +82,14 @@
             {% endfor %}
           </table>
         </div>
-        <form>
+        <form method=post>
           <div> TO ADD <input type = "text" name="item" value= "{{value}}"></div>
                 <select name= "choice">
                     <option value="want">WANT</option>
                     <option value="need">NEED</option>
                     <option value="bought">BOUGHT</option>
                 </select>
-                <div><input type = "SUBMIT"></div>
+                <div><input id="submitButton" type = "SUBMIT"></div>
               <div></div>
               </form>
 
