@@ -10,6 +10,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
         <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+        <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     </head>
     <body style='background-color:wheat'>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -66,6 +69,11 @@
 
                   <div class="shadow p-3 mb-5 bg-gray rounded" width=250px>
                     <h1 style='text-align: center'>Login!</h1>
+                  </br>
+                
+                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" style="margin-left: 485px"></div>
+                  </br>
+                </br>
                         <form>
                                 <div class="form-group">
                                   <label for="exampleInputEmail1">Email address</label>
@@ -79,7 +87,22 @@
                                 <button type="submit" class="btn btn-primary">Submit</button>
                               </form>
                   </div>
-                  <button type="button" class="btn btn-outline-secondary" height="250px" width="500px"><img src="/static/googlelogo.png"/></button>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      };
+    </script>
 
     </body>
 </html>
