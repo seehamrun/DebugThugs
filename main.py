@@ -90,7 +90,6 @@ class DeleteItemHandler(webapp2.RequestHandler):
         key = ndb.Key(urlsafe=self.request.get('item_id'))
         key.delete()
 
-
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
     ('/login', LoginPageHandler),
