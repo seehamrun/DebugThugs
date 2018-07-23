@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            Computer Science Summer Institute
+            Dorm Room Essentials Checklist
         </title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -19,16 +19,16 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                       <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="checklist.html">Checklist</a>
+                          <a class="nav-link" href="/checklist">Checklist</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="search.html">Search</a>
+                          <a class="nav-link" href="/search">Search</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="login.html">Login</a>
+                          <a class="nav-link" href="/login">Login</a>
                         </li>
                       </ul>
                       <form class="form-inline my-2 my-lg-0" method="post">
@@ -44,8 +44,8 @@
               <td>Want</td>
               <td>Remove Control<td>
             </tr>
-            {% for want in wants %}
             <tr>
+              {% for want in wantsList %}
               <td>{{want.value}}</td>
               <td><input type= "Remove" value= yes></td>
             </tr>
@@ -59,8 +59,8 @@
               <td>Need</td>
               <td>Remove Control<td>
             </tr>
-            {% for need in needs %}
             <tr>
+              {% for need in needsList %}
               <td>{{need.value}}</td>
               <td><input type= "Remove" value= yes></td>
             </tr>
@@ -74,8 +74,8 @@
               <td>Bought</td>
               <td>Remove Control<td>
             </tr>
-            {% for bought in bought %}
             <tr>
+              {% for bought in boughtList %}
               <td>{{bought.value}}</td>
               <td><input type= "Remove" value= yes></td>
             </tr>

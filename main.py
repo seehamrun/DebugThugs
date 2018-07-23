@@ -24,7 +24,7 @@ class LoginPageHandler(webapp2.RequestHandler):
         self.response.write(response_html.render())
     #def post(self):
 
-class ViewItemHandler(webapp2.RequestHandler):
+class SearchHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/search.html')
@@ -40,11 +40,13 @@ class ChecklistHandler(webapp2.RequestHandler):
         "needs": database.DatabaseNeeds.query().fetch(),
         "bought": database.DatabaseBought.query().fetch()
         }
-        self.response.write(response_html.render())
+        self.response.write(response_html.render(values))
+
 
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
     ('/login', LoginPageHandler),
     ('/view_item', ViewItemHandler),
+    ('/search', SearchHandler),
     ('/checklist', ChecklistHandler)
 ], debug=True)
