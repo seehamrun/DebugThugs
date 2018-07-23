@@ -42,13 +42,12 @@ class ChecklistHandler(webapp2.RequestHandler):
         }
         self.response.write(response_html.render(values))
     def post(self):
-        
+
 
 
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
     ('/login', LoginPageHandler),
-    ('/view_item', ViewItemHandler),
     ('/search', SearchHandler),
     ('/checklist', ChecklistHandler)
 ], debug=True)
