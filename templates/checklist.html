@@ -47,7 +47,7 @@
             <tr>
               {% for want in wantsList %}
               <td>{{want.value}}</td>
-              <td><input type= "Remove" value= yes></td>
+              <td><a href="/delete?item_id={{want.key.urlsafe()}}">Delete</a></td>
             </tr>
             {% endfor %}
           </table>
@@ -62,7 +62,7 @@
             <tr>
               {% for need in needsList %}
               <td>{{need.value}}</td>
-              <td><input type= "Remove" value= yes></td>
+              <td><a href="/delete?item_id={{need.key.urlsafe()}}">Delete</a></td>
             </tr>
             {% endfor %}
           </table>
@@ -77,13 +77,13 @@
             <tr>
               {% for bought in boughtList %}
               <td>{{bought.value}}</td>
-              <td><input type= "Remove" value= yes></td>
+              <td><a href="/delete?item_id={{bought.key.urlsafe()}}">Delete</a></td>
             </tr>
             {% endfor %}
           </table>
         </div>
         <form method=post>
-          <div> TO ADD <input type = "text" name="item" value= "{{value}}"></div>
+          <div> TO ADD <input type = "text" name="item" id="queryBox" value= "{{value}}"></div>
                 <select name= "choice">
                     <option value="want">WANT</option>
                     <option value="need">NEED</option>
