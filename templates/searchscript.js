@@ -1,4 +1,4 @@
-var giphy_api_key = "GgFZf48OO1lfS1C4hm9gMI0jt2sMIaFS"
+
 
 // Runs the given query and fetches the first result.
 // Args:
