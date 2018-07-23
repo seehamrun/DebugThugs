@@ -41,6 +41,8 @@ class ChecklistHandler(webapp2.RequestHandler):
         "bought": database.DatabaseBought.query().fetch()
         }
         self.response.write(response_html.render(values))
+    def post(self):
+        
 
 
 app = webapp2.WSGIApplication([
