@@ -14,35 +14,39 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="/static/searchscript.js"></script>
         <script src="/static/googlePlaces.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{googleApi}}&callback=initMap"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{googleApi}}&libraries=places&callback=initMap"></script>
+
+
     </head>
     <body>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-                    <a class="navbar-brand" href="/"><img src="/static/icon.png" height=50px width=50px/></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                      <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/checklist">Checklist</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/search">Search</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="/login">Login</a>
-                        </li>
-                      </ul>
-                      <form class="form-inline my-2 my-lg-0" method="post">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-                      </form>
-                    </div>
-                  </nav>
+      <!--Nav Bar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <a class="navbar-brand" href="/"><img src="/static/icon.png" height=50px width=50px/></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/checklist">Checklist</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/search">Search</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0" action='/search'method="get">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='item_id'>
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+              </form>
+            </div>
+          </nav>
+          <!--Search div-->
         <div class="container no-gutters">
           <div class="row justify-content-center">
             <h1 id= "itemName"> </h1>
@@ -51,7 +55,7 @@
             <div class="col">
             <p><input name="searchItem" id="queryBox" type="text" placeholder=" Search " value= {{item_id}}><input id="submit" type="submit"></p>
 
-
+              <!--Gif result div-->
               <div id="resultPane">
                 <div id="result"></div>
               </div>
@@ -59,14 +63,15 @@
                 <h5 class="googleMaps">You Can Find Your Item At These Locations</h1>
                 <div id="map"></div>
               </div>
-              <form method=post>
-              <div class="addToList" id= "listBtn" name="listButton">
-                <input type="submit" value="Still Need?"/>
-                <input type="submit" value="Still Want?"/>
-                <input type="submit" value="Did you Buy?"/>
+              <!--Edit category of the list div-->
+              <div class="addToList" id= 'listBtn'>
+                <div><button >Still Need?</button></div>
+                <div style="margin-top:20px;"><button >Still Want?</button></div>
+                <div style="margin-top:20px;"><button >Did you Buy?</button></div>
               </div>
             </form>
             </div>
+            <!--Iframe Divs-->
             <div class="col-8">
               <iframe id ="dormify" class= "iFrame" src="https://www.dormify.com/" width="900px" height="400px" align="right"></iframe>
               <iframe id ="walmart" class= "iFrame" src="https://www.walmart.com/" width="900px" height="400px" align="right"></iframe>

@@ -15,33 +15,34 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     </head>
     <body style="height: 100%;background-position: center; background-repeat: no-repeat; background-size: cover" background='/static/dorm2.jpg'>
+      <!--Nav bar-->
       <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <a class="navbar-brand" href="/"><img src="/static/icon.png" height=50px width=50px/></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/checklist">Checklist</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/search">Search</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0" method="post">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
-
+          <a class="navbar-brand" href="/"><img src="/static/icon.png" height=50px width=50px/></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/checklist">Checklist</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/search">Search</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action='/search'method="get">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='item_id'>
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+          <!--Sign up div-->
                   <div class="shadow p-3 mb-5 bg-gray rounded" width=700px style="float:left; margin: 100px auto auto 250px; background: rgba(255, 255, 255, 0.5)">
                       <h1 style='text-align: center'>Sign Up!</h1>
                           <form>
@@ -64,7 +65,7 @@
                                   <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
                     </div>
-
+                    <!--Login Div-->
                   <div class="shadow p-3 mb-5 bg-gray rounded" width=250px style="float:right; margin: 100px 250px auto auto; background: rgba(255, 255, 255, 0.5)">
                     <h1 style='text-align: center'>Login!</h1>
                   </br>
@@ -82,6 +83,7 @@
                                 <button type="submit" class="btn btn-primary">Submit</button>
                               </form>
                   </div>
+      <!--Script for google login button-->
     <script>
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
