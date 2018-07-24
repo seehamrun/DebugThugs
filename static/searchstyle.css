@@ -42,3 +42,9 @@ border: solid;
  margin: 4px 2px;
  cursor: pointer;
 }
+#map{
+  height:400px;
+  width: 400px;
+  margin: 0;
+  padding: 0;
+}

@@ -3,7 +3,7 @@ import jinja2
 import os
 import webbrowser
 from google.appengine.ext import ndb
-
+import api
 import database
 import time
 
@@ -47,9 +47,12 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/search.html')
         values = {
-        "item_id": itemID
+        "item_id": itemID,
+        "googleApi" : api.googleApi,
         }
         self.response.write(response_html.render(values))
+
+
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
