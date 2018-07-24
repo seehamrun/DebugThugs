@@ -48,11 +48,11 @@
           <table>
             <tr>
               <td>Want</td>
-              <td>Remove Control<td>
+              <td>Remove<td>
             </tr>
             <tr>
               {% for want in wantsList %}
-              <td>{{want.value}}</td>
+              <td><a href="/search?item_id={{want.value}}">{{want.value}}</td>
               <td><a href="/delete?item_id={{want.key.urlsafe()}}">Delete</a></td>
             </tr>
             {% endfor %}
@@ -63,11 +63,11 @@
           <table>
             <tr>
               <td>Need</td>
-              <td>Remove Control<td>
+              <td>Remove<td>
             </tr>
             <tr>
               {% for need in needsList %}
-              <td>{{need.value}}</td>
+              <td><a href="/search?item_id={{need.value}}">{{need.value}}</a></td>
               <td><a href="/delete?item_id={{need.key.urlsafe()}}">Delete</a></td>
             </tr>
             {% endfor %}
@@ -78,11 +78,11 @@
           <table>
             <tr>
               <td>Bought</td>
-              <td>Remove Control<td>
+              <td>Remove<td>
             </tr>
             <tr>
               {% for bought in boughtList %}
-              <td>{{bought.value}}</td>
+              <td><a href="/search?item_id={{bought.value}}">{{bought.value}}</td>
               <td><a href="/delete?item_id={{bought.key.urlsafe()}}">Delete</a></td>
             </tr>
             {% endfor %}
@@ -98,7 +98,7 @@
                     <option value="bought">BOUGHT</option>
                 </select>
                 <div><input id="submitButton" type = "SUBMIT"></div>
-              <div></div>
+
               </form>
 
     </body>
