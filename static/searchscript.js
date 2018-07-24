@@ -26,12 +26,12 @@ function displayResult(resultJson) {
   console.log(resultJson.data)
   console.log(resultJson.data[0])
   console.log(resultJson.data[0].images)
-  console.log(resultJson.data[0].images.downsized_medium)
-  console.log(resultJson.data[0].images.downsized_medium.url)
-  currentGifUrl = resultJson.data[0].images.downsized.url;
+  console.log(resultJson.data[0].images.fixed_height_downsampled)
+  console.log(resultJson.data[0].images.fixed_height_downsampled.url)
+  currentGifUrl = resultJson.data[0].images.fixed_height_downsampled.url;
 
   var imgString = "<img src='" +
-                  resultJson.data[0].images.downsized.url +
+                  resultJson.data[0].images.fixed_height_downsampled.url +
                   "'/>"
   resultDiv.innerHTML = imgString
 
