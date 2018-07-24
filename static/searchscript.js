@@ -39,10 +39,13 @@ function displayResult(resultJson) {
   // button visible.
   resultPaneDiv.style.display = "block"
 }
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 function submitClick() {
   var inputBox = document.querySelector('#queryBox')
   var userInput = inputBox.value
-  document.getElementById("itemName").innerHTML = "Phrase Searched: '" + (userInput) + "'"
+  document.getElementById("itemName").innerHTML = capitalizeFirstLetter(userInput)
   document.getElementById("pottery").src ="https://www.potterybarn.com/search/results.html?words=" + (userInput) + "&cm_sp=HeaderLinks-_-OnsiteSearch-_-MainSite&cm_type=OnsiteSearch"
   document.getElementById("dormify").src ="https://www.dormify.com/search?q=" + (userInput)
   document.getElementById("dormco").src ="https://www.dormco.com/SearchResults.asp?Search=" + (userInput) + "&Submit="
@@ -53,3 +56,39 @@ window.addEventListener('load', () => {
   document.querySelector('#submit').addEventListener("click", submitClick)
 
 });
+var map, infoWindow;
+function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 41.887327, lng: -87.652370},
+          zoom: 12
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Your Location.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }

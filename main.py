@@ -2,8 +2,9 @@ import webapp2
 import jinja2
 import os
 import webbrowser
-from google.appengine.ext import ndb
 
+from google.appengine.ext import ndb
+import api
 import database
 import time
 
@@ -43,9 +44,29 @@ class LoginPageHandler(webapp2.RequestHandler):
 
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
+        itemID = self.request.get("item_id")
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/search.html')
-        self.response.write(response_html.render())
+        values = {
+        "item_id": itemID,
+        "googleApi" : api.googleApi,
+        }
+        self.response.write(response_html.render(values))
+    def post(self):
+        item_id = self.request.get('item_id')
+        typeSelector = self.request.get('listBtn')
+        self.response.headers['Content-Type'] = 'text/html'
+        storedStuff(typeSelector, item_id)
+        time.sleep(0.5)
+        self.response.headers['Content-Type'] = 'text/html'
+        response_html = jinja_env.get_template('templates/checklist.html')
+        values= {
+        "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
+        "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need").fetch(),
+        "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
+        }
+        self.response.write(response_html.render(values))
+
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'

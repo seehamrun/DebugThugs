@@ -13,6 +13,8 @@
         <script src="/static/api.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="/static/searchscript.js"></script>
+        <script src="/static/googlePlaces.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{googleApi}}&callback=initMap"></script>
     </head>
     <body>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,28 +45,31 @@
                   </nav>
         <div class="container no-gutters">
           <div class="row justify-content-center">
-            <h1 id= "itemName">Phrase Searched:</h1>
+            <h1 id= "itemName"> </h1>
           </div>
           <div class="row no-gutters justify-content-center">
             <div class="col">
-              <p><input id="queryBox" type="text" placeholder=" Search " ><input id="submit" type="submit"></p>
+            <p><input id="queryBox" type="text" placeholder=" Search " value= {{item_id}}><input id="submit" type="submit"></p>
+
+
               <div id="resultPane">
                 <div id="result"></div>
               </div>
-              <div class="googleMaps">
-                <h1>Google Maps Here</h1>
+              <div>
+                <h5 class="googleMaps">You Can Find Your Item At These Locations</h1>
+                <div id="map"></div>
               </div>
-              <div class="addToList">
-                <p>Still Need?</p>
-                <p>Still Want?</p>
-                <p>Bought?</p>
+              <div class="addToList" id= 'listBtn'>
+                <div><button >Still Need?</button></div>
+                <div style="margin-top:20px;"><button >Still Want?</button></div>
+                <div style="margin-top:20px;"><button >Did you Buy?</button></div>
               </div>
             </div>
             <div class="col-8">
-              <iframe id ="dormco" class= "iFrame" src="https://www.dormco.com/" width="900px" height="400px" align="right"></iframe>
               <iframe id ="dormify" class= "iFrame" src="https://www.dormify.com/" width="900px" height="400px" align="right"></iframe>
               <iframe id ="walmart" class= "iFrame" src="https://www.walmart.com/" width="900px" height="400px" align="right"></iframe>
               <iframe id ="pottery" class= "iFrame" src="https://www.potterybarn.com/" width="900px" height="400px" align="right"></iframe>
+              <iframe id ="dormco" class= "iFrame" src="https://www.dormco.com/" width="900px" height="400px" align="right"></iframe>
             </div>
           </div>
         </div>
