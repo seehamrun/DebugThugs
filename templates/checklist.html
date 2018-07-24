@@ -42,9 +42,9 @@
         </div>
       </nav>
       <!-- Start tables-->
-      
 
-      
+
+
         <div class="row justify-content-center shadow p-3 mb-5 bg-gray rounded" style="background: rgba(255, 255, 255, 0.7)">
           <h1 style="margin-top: 30px">Checklist</h1>
         </div>
@@ -91,7 +91,9 @@
                 <tbody>
                     <tr>
                         {% for want in wantsList %}
-                        <td><a href="/delete?item_id={{want.key.urlsafe()}}"><img src="/static/x.svg"/></a>           {{want.value}}</td>                      </tr>
+                        <td><a href="/delete?item_id={{want.key.urlsafe()}}"><img src="/static/x.svg"/></a></td>
+                        <td><a href="/search?item_id={{want.value}}">{{want.value}}</td>
+                        </tr>
                       {% endfor %}
                 </tbody>
               </table>
@@ -107,12 +109,14 @@
                     <tbody>
                         <tr>
                             {% for need in needsList %}
-                            <td><a href="/delete?item_id={{need.key.urlsafe()}}"><svg-icon><img src="/static/x.svg"/></a>           {{need.value}}</td>                      </tr>
+                            <td><a href="/delete?item_id={{need.key.urlsafe()}}"><img src="/static/x.svg"/></a></td>
+                            <td><a href="/search?item_id={{need.value}}">{{need.value}}</td>
+                            </tr>
                           {% endfor %}
                     </tbody>
                   </table>
                 </div>
-            
+
                 <div class="col">
                     <table class="table table-striped" >
                         <thead>
@@ -123,7 +127,9 @@
                         <tbody>
                             <tr>
                                 {% for bought in boughtList %}
-                                <td><a href="/delete?item_id={{bought.key.urlsafe()}}"><img src="/static/x.svg"/></a>           {{bought.value}}</td>                      </tr>
+                                <td><a href="/delete?item_id={{bought.key.urlsafe()}}"><img src="/static/x.svg"/></a></td>
+                                <td><a href="/search?item_id={{bought.value}}">{{bought.value}}</td>
+                                </tr>
                               {% endfor %}
                         </tbody>
                       </table>
