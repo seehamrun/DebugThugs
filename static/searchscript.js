@@ -63,8 +63,6 @@ function initMap() {
           zoom: 12
         });
         infoWindow = new google.maps.InfoWindow;
-
-        // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
@@ -76,6 +74,14 @@ function initMap() {
             infoWindow.setContent('Your Location.');
             infoWindow.open(map);
             map.setCenter(pos);
+
+            var service = new google.maps.places.PlacesService(map);
+            service.nearbySearch({
+              location: pos,
+              radius: 2000,
+              type: ['retail stores near me']
+            }, callback);
+
           }, function() {
             handleLocationError(true, infoWindow, map.getCenter());
           });
@@ -91,4 +97,26 @@ function initMap() {
                               'Error: The Geolocation service failed.' :
                               'Error: Your browser doesn\'t support geolocation.');
         infoWindow.open(map);
+      }
+
+      // https://developers.google.com/maps/documentation/javascript/examples/place-search
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
       }
