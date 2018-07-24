@@ -9,6 +9,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
         <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+        <!-- <script src="/templates/bootstrap-4.1.2-dist/css/bootstrap-grid.css"></script> -->
+        <script src="/static/checklist.css"></script>
       </head>
     <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,9 +39,13 @@
           </form>
         </div>
       </nav>
-        <h1>Checklist</h1>
-        <div>
-          <table style="align= left">
+      <div class="container">
+        <div class="row justify-content-center">
+          <h1>Checklist</h1>
+        </div>
+        <div class = "row justify-content-center">
+        <div class= "col">
+          <table>
             <tr>
               <td>Want</td>
               <td>Remove Control<td>
@@ -53,8 +59,8 @@
           </table>
         </div>
 
-        <div>
-          <table align="center">
+        <div class= "col">
+          <table>
             <tr>
               <td>Need</td>
               <td>Remove Control<td>
@@ -68,8 +74,8 @@
           </table>
         </div>
 
-        <div>
-          <table style="float: right">
+        <div class="col">
+          <table>
             <tr>
               <td>Bought</td>
               <td>Remove Control<td>
@@ -82,6 +88,8 @@
             {% endfor %}
           </table>
         </div>
+      </div>
+      </div>
         <form method=post>
           <div> TO ADD <input type = "text" name="item" id="queryBox" value= "{{value}}"></div>
                 <select name= "choice">
