@@ -29,8 +29,6 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/search.html')
         self.response.write(response_html.render())
-    #def post(self):
-
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'

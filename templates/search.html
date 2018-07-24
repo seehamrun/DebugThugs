@@ -10,7 +10,7 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
         <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
         <link rel="stylesheet" href="/static/searchstyle.css">
-        <script type="/static/api.js"> </script>
+        <script src="/static/api.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="/static/searchscript.js"></script>
     </head>
@@ -41,15 +41,15 @@
                       </form>
                     </div>
                   </nav>
-        <h1 id= "itemName">Item Name</h1>
-        <p><input id="queryBox" type="text" placeholder=" Search "> <button id="submit">Submit!</button></p>
+        <h1 id= "itemName">Item</h1>
+        <p><input id="queryBox" type="text" placeholder=" Search " ><input id="submit" type="submit"></p>
         <div id="resultPane">
           <div id="result"></div>
         </div>
-        <iframe class= "iFrame" src="https://www.potterybarn.com/" width="70%" height="400px" align="right"></iframe>
-        <iframe class= "iFrame" src="https://www.dormco.com/" width="70%" height="400px" align="right"></iframe>
-        <iframe class= "iFrame" src="https://www.dormify.com/" width="70%" height="400px" align="right"></iframe>
-        <iframe class= "iFrame" src="https://www.walmart.com/" width="70%" height="400px" align="right"></iframe>
+        <iframe id ="dormco" class= "iFrame" src="https://www.dormco.com/" width="70%" height="400px" align="right"></iframe>
+        <iframe id ="dormify" class= "iFrame" src="https://www.dormify.com/" width="70%" height="400px" align="right"></iframe>
+        <iframe id ="walmart" class= "iFrame" src="https://www.walmart.com/" width="70%" height="400px" align="right"></iframe>
+        <iframe id ="pottery" class= "iFrame" src="https://www.potterybarn.com/" width="70%" height="400px" align="right"></iframe>
     </body>
 
 </html>
