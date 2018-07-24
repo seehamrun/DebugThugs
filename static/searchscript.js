@@ -42,7 +42,11 @@ function displayResult(resultJson) {
 function submitClick() {
   var inputBox = document.querySelector('#queryBox')
   var userInput = inputBox.value
+<<<<<<< HEAD
   document.getElementById("itemName").innerHTML = " " + (userInput) + " "
+=======
+  document.getElementById("itemName").innerHTML = (userInput)
+>>>>>>> d6cfb17e7871984ee4840ddcd658667806091d1c
   document.getElementById("pottery").src ="https://www.potterybarn.com/search/results.html?words=" + (userInput) + "&cm_sp=HeaderLinks-_-OnsiteSearch-_-MainSite&cm_type=OnsiteSearch"
   document.getElementById("dormify").src ="https://www.dormify.com/search?q=" + (userInput)
   document.getElementById("dormco").src ="https://www.dormco.com/SearchResults.asp?Search=" + (userInput) + "&Submit="

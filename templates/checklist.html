@@ -50,12 +50,20 @@
           <table>
             <tr>
               <td>Want</td>
+<<<<<<< HEAD
 
             </tr>
             <tr>
               {% for want in wantsList %}
               <td><a href="/search?item_id={{want.value}}">{{want.value}}</a></td>
               <td><a href="/delete?item_id={{want.key.urlsafe()}}">Delete</a></td>
+=======
+            </tr>
+            <tr>
+              {% for want in wantsList %}
+              <td><a href="/search?item_id={{want.value}}">{{want.value}}</td>
+              <td><a href="/delete?item_id={{want.key.urlsafe()}}">Remove</a></td>
+>>>>>>> d6cfb17e7871984ee4840ddcd658667806091d1c
             </tr>
             {% endfor %}
           </table>
@@ -65,12 +73,15 @@
           <table>
             <tr>
               <td>Need</td>
+<<<<<<< HEAD
 
+=======
+>>>>>>> d6cfb17e7871984ee4840ddcd658667806091d1c
             </tr>
             <tr>
               {% for need in needsList %}
               <td><a href="/search?item_id={{need.value}}">{{need.value}}</a></td>
-              <td><a href="/delete?item_id={{need.key.urlsafe()}}">Delete</a></td>
+              <td><a href="/delete?item_id={{need.key.urlsafe()}}">Remove</a></td>
             </tr>
             {% endfor %}
           </table>
@@ -80,12 +91,15 @@
           <table>
             <tr>
               <td>Bought</td>
+<<<<<<< HEAD
 
+=======
+>>>>>>> d6cfb17e7871984ee4840ddcd658667806091d1c
             </tr>
             <tr>
               {% for bought in boughtList %}
               <td><a href="/search?item_id={{bought.value}}">{{bought.value}}</td>
-              <td><a href="/delete?item_id={{bought.key.urlsafe()}}">Delete</a></td>
+              <td><a href="/delete?item_id={{bought.key.urlsafe()}}">Remove</a></td>
             </tr>
             {% endfor %}
           </table>
