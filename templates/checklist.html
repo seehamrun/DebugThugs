@@ -11,6 +11,7 @@
         <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
         <!-- <script src="/templates/bootstrap-4.1.2-dist/css/bootstrap-grid.css"></script> -->
         <script src="/static/checklist.css"></script>
+        <script src="/static/searchscript.js"></script>
       </head>
     <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -52,7 +53,7 @@
             </tr>
             <tr>
               {% for want in wantsList %}
-              <td><a href="/search?item_id={{want.value}}">{{want.value}}</td>
+              <td><a id="checkSearch" ref="/search?item_id={{want.value}}">{{want.value}}</td>
               <td><a href="/delete?item_id={{want.key.urlsafe()}}">Delete</a></td>
             </tr>
             {% endfor %}
