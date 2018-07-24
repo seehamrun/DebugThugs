@@ -49,7 +49,7 @@
           </div>
           <div class="row no-gutters justify-content-center">
             <div class="col">
-            <p><input id="queryBox" type="text" placeholder=" Search " value= {{item_id}}><input id="submit" type="submit"></p>
+            <p><input name="searchItem" id="queryBox" type="text" placeholder=" Search " value= {{item_id}}><input id="submit" type="submit"></p>
 
 
               <div id="resultPane">
@@ -59,11 +59,13 @@
                 <h5 class="googleMaps">You Can Find Your Item At These Locations</h1>
                 <div id="map"></div>
               </div>
-              <div class="addToList" id= 'listBtn'>
-                <div><button >Still Need?</button></div>
-                <div style="margin-top:20px;"><button >Still Want?</button></div>
-                <div style="margin-top:20px;"><button >Did you Buy?</button></div>
+              <form method=post>
+              <div class="addToList" id= "listBtn" name="listButton">
+                <input type="submit" value="Still Need?"/>
+                <input type="submit" value="Still Want?"/>
+                <input type="submit" value="Did you Buy?"/>
               </div>
+            </form>
             </div>
             <div class="col-8">
               <iframe id ="dormify" class= "iFrame" src="https://www.dormify.com/" width="900px" height="400px" align="right"></iframe>
