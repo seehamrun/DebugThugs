@@ -2,8 +2,9 @@ import webapp2
 import jinja2
 import os
 import webbrowser
+
 from google.appengine.ext import ndb
-import api
+# import api
 import database
 import time
 
@@ -53,9 +54,9 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.write(response_html.render(values))
     def post(self):
         item_id = self.request.get('item_id')
-        typeSelector = self.request.get('choice')
+        typeSelector = self.request.get('listBtn')
         self.response.headers['Content-Type'] = 'text/html'
-        storedStuff(typeSelector, item)
+        storedStuff(typeSelector, item_id)
         time.sleep(0.5)
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/checklist.html')
