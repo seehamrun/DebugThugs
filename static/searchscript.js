@@ -42,7 +42,7 @@ function displayResult(resultJson) {
 function submitClick() {
   var inputBox = document.querySelector('#queryBox')
   var userInput = inputBox.value
-  document.getElementById("itemName").innerHTML =(userInput)
+  document.getElementById("itemName").innerHTML = "Phrase Searched: '" + (userInput) + "'"
   document.getElementById("pottery").src ="https://www.potterybarn.com/search/results.html?words=" + (userInput) + "&cm_sp=HeaderLinks-_-OnsiteSearch-_-MainSite&cm_type=OnsiteSearch"
   document.getElementById("dormify").src ="https://www.dormify.com/search?q=" + (userInput)
   document.getElementById("dormco").src ="https://www.dormco.com/SearchResults.asp?Search=" + (userInput) + "&Submit="
