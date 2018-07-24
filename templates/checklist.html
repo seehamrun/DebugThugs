@@ -8,7 +8,9 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-        <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>    
+        <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+        <script src="/templates/bootstrap-4.1.2-dist/css/bootstrap-grid.css"></script>
+        <script src="/static/checklist.css"></script>
       </head>
     <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -38,7 +40,8 @@
         </div>
       </nav>
         <h1>Checklist</h1>
-        <div>
+        <div class = "row">
+        <div class=".col-xs-6">
           <table>
             <tr>
               <td>Want</td>
@@ -53,7 +56,7 @@
           </table>
         </div>
 
-        <div>
+        <div class=".col-xs-6">
           <table>
             <tr>
               <td>Need</td>
@@ -68,7 +71,7 @@
           </table>
         </div>
 
-        <div>
+        <div class=".col-xs-6">
           <table>
             <tr>
               <td>Bought</td>
@@ -82,6 +85,7 @@
             {% endfor %}
           </table>
         </div>
+      </div>
         <form method=post>
           <div> TO ADD <input type = "text" name="item" id="queryBox" value= "{{value}}"></div>
                 <select name= "choice">

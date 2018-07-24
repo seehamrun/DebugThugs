@@ -1,6 +1,7 @@
 import webapp2
 import jinja2
 import os
+import webbrowser
 from google.appengine.ext import ndb
 
 import database
@@ -45,12 +46,7 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/search.html')
         self.response.write(response_html.render())
-<<<<<<< HEAD
-=======
-    #def post(self):
 
-# nkdvkjs
->>>>>>> 68b9331fe063859094a17495e01c9c47c9133512
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
@@ -84,6 +80,7 @@ class DeleteItemHandler(webapp2.RequestHandler):
     def post(self):
         key = ndb.Key(urlsafe=self.request.get('item_id'))
         key.delete()
+        self.redirect("/checklist")
 
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
