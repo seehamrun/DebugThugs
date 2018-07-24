@@ -12,7 +12,7 @@
         <!-- <script src="/templates/bootstrap-4.1.2-dist/css/bootstrap-grid.css"></script> -->
         <script src="/static/checklist.css"></script>
       </head>
-    <body>
+    <body style="height: 100%;background-position: center; background-repeat: no-repeat; background-size: cover" background='/static/harvard.png'>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/"><img src="/static/icon.png" height=50px width=50px/></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,67 +39,96 @@
           </form>
         </div>
       </nav>
-      <div class="container">
-        <div class="row justify-content-center">
-          <h1>Checklist</h1>
-        </div>
-        <div class = "row justify-content-center">
-        <div class= "col">
-          <table>
-            <tr>
-              <td>Want</td>
-              <td>Remove Control<td>
-            </tr>
-            <tr>
-              {% for want in wantsList %}
-              <td>{{want.value}}</td>
-              <td><a href="/delete?item_id={{want.key.urlsafe()}}">Delete</a></td>
-            </tr>
-            {% endfor %}
-          </table>
+      <!-- Start tables-->
+      
+
+      
+        <div class="row justify-content-center shadow p-3 mb-5 bg-gray rounded" style="background: rgba(255, 255, 255, 0.7">
+          <h1 style="margin-top: 30px">Checklist</h1>
         </div>
 
-        <div class= "col">
-          <table>
-            <tr>
-              <td>Need</td>
-              <td>Remove Control<td>
-            </tr>
-            <tr>
-              {% for need in needsList %}
-              <td>{{need.value}}</td>
-              <td><a href="/delete?item_id={{need.key.urlsafe()}}">Delete</a></td>
-            </tr>
-            {% endfor %}
-          </table>
-        </div>
-
-        <div class="col">
-          <table>
-            <tr>
-              <td>Bought</td>
-              <td>Remove Control<td>
-            </tr>
-            <tr>
-              {% for bought in boughtList %}
-              <td>{{bought.value}}</td>
-              <td><a href="/delete?item_id={{bought.key.urlsafe()}}">Delete</a></td>
-            </tr>
-            {% endfor %}
-          </table>
-        </div>
-      </div>
-      </div>
+        <div class="shadow p-3 mb-5 bg-gray rounded" width=500px style="float:left; margin: 70px auto auto 100px; background: rgba(255, 255, 255, 0.7)">
         <form method=post>
-          <div> TO ADD <input type = "text" name="item" id="queryBox" value= "{{value}}"></div>
-                <select name= "choice">
-                    <option value="want">WANT</option>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Item</label>
+              <div class="col-sm-10">
+                <input type="text" name='item' class="form-control" id="queryBox" value= "{{value}}" placeholder="Add an item of your choice!" style="margin-right: 30px">
+              </div>
+            </div>
+            <fieldset class="form-group">
+              <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0" style="margin-right: 20px;">Category</legend>
+                <div class="col-sm-10">
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name= "choice">
+                      <option selected>Choose...</option>
+                      <option value="want">WANT</option>
                     <option value="need">NEED</option>
                     <option value="bought">BOUGHT</option>
-                </select>
-                <div><input id="submitButton" type = "SUBMIT"></div>
-              <div></div>
-              </form>
+                    </select>
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button class="btn btn-primary" id="submitButton" type = "SUBMIT">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="shadow p-3 mb-5 bg-gray rounded" style="float:right; margin-right: auto; background: rgba(255, 255, 255, 0.7)">
+        <div class = "row justify-content-center">
+
+          <div class="col">
+            <table class="table table-striped" >
+                <thead>
+                  <tr>
+                    <th scope="col">Wants</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        {% for want in wantsList %}
+                        <td><a href="/delete?item_id={{want.key.urlsafe()}}"><img src="/static/x.svg"/></a>           {{want.value}}</td>                      </tr>
+                      {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="col">
+                <table class="table table-striped"  item-width="50px">
+                    <thead>
+                      <tr>
+                        <th scope="col">Needs</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for need in needsList %}
+                            <td><a href="/delete?item_id={{need.key.urlsafe()}}"><svg-icon><img src="/static/x.svg"/></a>           {{need.value}}</td>                      </tr>
+                          {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+            
+                <div class="col">
+                    <table class="table table-striped" >
+                        <thead>
+                          <tr>
+                            <th scope="col">Bought</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {% for bought in boughtList %}
+                                <td><a href="/delete?item_id={{bought.key.urlsafe()}}"><img src="/static/x.svg"/></a>           {{bought.value}}</td>                      </tr>
+                              {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+
+      </div>
+      </div>
 
     </body>
 </html>
