@@ -51,7 +51,20 @@ class SearchHandler(webapp2.RequestHandler):
         "googleApi" : api.googleApi,
         }
         self.response.write(response_html.render(values))
-
+    def post(self):
+        item_id = self.request.get('item_id')
+        typeSelector = self.request.get('choice')
+        self.response.headers['Content-Type'] = 'text/html'
+        storedStuff(typeSelector, item)
+        time.sleep(0.5)
+        self.response.headers['Content-Type'] = 'text/html'
+        response_html = jinja_env.get_template('templates/checklist.html')
+        values= {
+        "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
+        "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need").fetch(),
+        "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
+        }
+        self.response.write(response_html.render(values))
 
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
