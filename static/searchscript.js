@@ -39,10 +39,13 @@ function displayResult(resultJson) {
   // button visible.
   resultPaneDiv.style.display = "block"
 }
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 function submitClick() {
   var inputBox = document.querySelector('#queryBox')
   var userInput = inputBox.value
-  document.getElementById("itemName").innerHTML = (userInput)
+  document.getElementById("itemName").innerHTML = capitalizeFirstLetter(userInput)
   document.getElementById("pottery").src ="https://www.potterybarn.com/search/results.html?words=" + (userInput) + "&cm_sp=HeaderLinks-_-OnsiteSearch-_-MainSite&cm_type=OnsiteSearch"
   document.getElementById("dormify").src ="https://www.dormify.com/search?q=" + (userInput)
   document.getElementById("dormco").src ="https://www.dormco.com/SearchResults.asp?Search=" + (userInput) + "&Submit="
