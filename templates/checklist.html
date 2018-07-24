@@ -53,11 +53,7 @@
 </tr>
             <tr>
               {% for want in wantsList %}
-<<<<<<< HEAD
-              <td><a href="/search?item_id={{want.value}}">{{want.value}}</a></td>
-=======
-              <td><a href="/search?item_id={{want.value}}">{{want.value}}</td>
->>>>>>> 34e34a5a9c8f6daec1bb5dc073d593b768a0b762
+              <td><a href="/search?item_id={{want.value}}"/>{{want.value}}</td>
               <td><a href="/delete?item_id={{want.key.urlsafe()}}">Remove</a></td>
             </tr>
             {% endfor %}
