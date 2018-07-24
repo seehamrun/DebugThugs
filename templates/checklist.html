@@ -50,11 +50,11 @@
           <table>
             <tr>
               <td>Want</td>
-              <td>Remove<td>
+
             </tr>
             <tr>
               {% for want in wantsList %}
-              <td><a id="checkSearch" ref="/search?item_id={{want.value}}">{{want.value}}</td>
+              <td><a href="/search?item_id={{want.value}}">{{want.value}}</a></td>
               <td><a href="/delete?item_id={{want.key.urlsafe()}}">Delete</a></td>
             </tr>
             {% endfor %}
@@ -65,7 +65,7 @@
           <table>
             <tr>
               <td>Need</td>
-              <td>Remove<td>
+
             </tr>
             <tr>
               {% for need in needsList %}
@@ -80,7 +80,7 @@
           <table>
             <tr>
               <td>Bought</td>
-              <td>Remove<td>
+
             </tr>
             <tr>
               {% for bought in boughtList %}
