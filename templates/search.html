@@ -14,6 +14,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="/static/searchscript.js"></script>
         <script src="/static/googlePlaces.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{googleApi}}&callback=initMap"></script>
     </head>
     <body>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,8 +55,9 @@
               <div id="resultPane">
                 <div id="result"></div>
               </div>
-              <div class="googleMaps">
-                <h5>You Can Find Your Item At These Locations</h1>
+              <div>
+                <h5 class="googleMaps">You Can Find Your Item At These Locations</h1>
+                <div id="map"></div>
               </div>
               <div class="addToList">
                 <p>Still Need?</p>
