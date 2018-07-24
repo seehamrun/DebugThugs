@@ -64,7 +64,7 @@
             </tr>
             <tr>
               {% for need in needsList %}
-              <td>{{need.value}}</td>
+              <td><a href="/search?item_id={{need.key.urlsafe()}}">{{need.value}}</a></td>
               <td><a href="/delete?item_id={{need.key.urlsafe()}}">Delete</a></td>
             </tr>
             {% endfor %}
