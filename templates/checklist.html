@@ -55,7 +55,7 @@
             <tr>
               {% for want in wantsList %}
               <td><a href="/search?item_id={{want.value}}">{{want.value}}</a></td>
-              <td><a href="/delete?item_id={{want.key.urlsafe()}}">Delete</a></td>
+              <td><a href="/delete?item_id={{want.key.urlsafe()}}">Remove</a></td>
             </tr>
             {% endfor %}
           </table>
