@@ -39,9 +39,12 @@
           </form>
         </div>
       </nav>
-        <h1>Checklist</h1>
-        <div class = "row">
-        <div >
+      <div class="container">
+        <div class="row justify-content-center">
+          <h1>Checklist</h1>
+        </div>
+        <div class = "row justify-content-center">
+        <div class= "col">
           <table>
             <tr>
               <td>Want</td>
@@ -56,7 +59,7 @@
           </table>
         </div>
 
-        <div >
+        <div class= "col">
           <table>
             <tr>
               <td>Need</td>
@@ -71,7 +74,7 @@
           </table>
         </div>
 
-        <div class=>
+        <div class="col">
           <table>
             <tr>
               <td>Bought</td>
@@ -85,6 +88,7 @@
             {% endfor %}
           </table>
         </div>
+      </div>
       </div>
         <form method=post>
           <div> TO ADD <input type = "text" name="item" id="queryBox" value= "{{value}}"></div>
