@@ -26,12 +26,12 @@ function displayResult(resultJson) {
   console.log(resultJson.data)
   console.log(resultJson.data[0])
   console.log(resultJson.data[0].images)
-  console.log(resultJson.data[0].images.downsized_medium)
-  console.log(resultJson.data[0].images.downsized_medium.url)
-  currentGifUrl = resultJson.data[0].images.downsized.url;
+  console.log(resultJson.data[0].images.fixed_height_downsampled)
+  console.log(resultJson.data[0].images.fixed_height_downsampled.url)
+  currentGifUrl = resultJson.data[0].images.fixed_height_downsampled.url;
 
   var imgString = "<img src='" +
-                  resultJson.data[0].images.downsized.url +
+                  resultJson.data[0].images.fixed_height_downsampled.url +
                   "'/>"
   resultDiv.innerHTML = imgString
 
@@ -42,7 +42,7 @@ function displayResult(resultJson) {
 function submitClick() {
   var inputBox = document.querySelector('#queryBox')
   var userInput = inputBox.value
-  document.getElementById("itemName").innerHTML =(userInput)
+  document.getElementById("itemName").innerHTML = "Phrase Searched: '" + (userInput) + "'"
   document.getElementById("pottery").src ="https://www.potterybarn.com/search/results.html?words=" + (userInput) + "&cm_sp=HeaderLinks-_-OnsiteSearch-_-MainSite&cm_type=OnsiteSearch"
   document.getElementById("dormify").src ="https://www.dormify.com/search?q=" + (userInput)
   document.getElementById("dormco").src ="https://www.dormco.com/SearchResults.asp?Search=" + (userInput) + "&Submit="

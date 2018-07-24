@@ -46,7 +46,13 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/search.html')
         self.response.write(response_html.render())
+<<<<<<< HEAD
 
+=======
+    #def post(self):
+
+# nkdvkjs
+>>>>>>> b0e67cfd8bf5a2891315d4aedd57ee655e621c6f
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
