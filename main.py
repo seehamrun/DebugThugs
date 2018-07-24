@@ -46,13 +46,6 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/search.html')
         self.response.write(response_html.render())
-<<<<<<< HEAD
-
-=======
-    #def post(self):
-
-# nkdvkjs
->>>>>>> b0e67cfd8bf5a2891315d4aedd57ee655e621c6f
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'text/html'
@@ -73,6 +66,7 @@ class ChecklistHandler(webapp2.RequestHandler):
         }
         self.response.write(response_html.render(values))
 
+
 class DeleteItemHandler(webapp2.RequestHandler):
     def get(self):
         item_to_delete = self.request.get('item_id')
@@ -87,6 +81,21 @@ class DeleteItemHandler(webapp2.RequestHandler):
         key = ndb.Key(urlsafe=self.request.get('item_id'))
         key.delete()
         self.redirect("/checklist")
+        item = self.request.get('item')
+        typeSelector = self.request.get('choice')
+        self.response.headers['Content-Type'] = 'text/html'
+        storedStuff(typeSelector, item)
+        time.sleep(0.5)
+        self.response.headers['Content-Type'] = 'text/html'
+        response_html = jinja_env.get_template('templates/checklist.html')
+        values= {
+        "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
+        "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need").fetch(),
+        "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
+        }
+        self.response.write(response_html.render(values))
+
+
 
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
