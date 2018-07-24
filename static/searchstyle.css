@@ -25,3 +25,8 @@
 .container {
     max-width: 100%;
 }
+
+.googleMaps{
+  text-decoration: underline;
+  font-family: sans-serif;
+}
