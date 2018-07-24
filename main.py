@@ -53,7 +53,7 @@ class SearchHandler(webapp2.RequestHandler):
         }
         self.response.write(response_html.render(values))
     def post(self):
-        item_id = self.request.get('item_id')
+        item_id = self.request.get('queryBox')
         typeSelector = self.request.get('listBtn')
         self.response.headers['Content-Type'] = 'text/html'
         storedStuff(typeSelector, item_id)
