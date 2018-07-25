@@ -54,7 +54,21 @@
           </div>
           <div class="row no-gutters justify-content-center">
             <div class="col">
-            <p><input name="newItem" id="queryBox" type="text" placeholder=" Search " value= {{item_id}}><input id="submit" type="submit"></p>
+            <p><input name="newItem" id="queryBox" type="text" placeholder=" Search " value= "{{item_id}}"><input id="submit" type="submit"></p>
+            <input type="text" name='item' class="form-control" id="queryBox" value= "{{value}}" placeholder="Add an item of your choice!" style="margin-right: 30px">
+            <div>
+                <select name= "choiceSearch">
+                  <option selected>Choose...</option>
+                  <option value="want">Still Want!</option>
+                  <option value="need">Still Need!</option>
+                  <option value="bought">I Bought!</option>
+                </select>
+            </div>
+            <div >
+              <div >
+                <button class="btn btn-primary" id="submitButton" type = "SUBMIT">Submit</button>
+              </div>
+            </div>
 
               <!--Gif result div-->
               <div id="resultPane">
@@ -66,21 +80,9 @@
               </div>
               <!--Edit category of the list div-->
               <div>
-              <div>
-                  <select name= "choiceSearch">
-                    <option selected>Choose...</option>
-                    <option value="want">Still Want!</option>
-                    <option value="need">Still Need!</option>
-                    <option value="bought">I Bought!</option>
-                  </select>
               </div>
-            </div>
           </fieldset>
-          <div >
-            <div >
-              <button class="btn btn-primary" id="submitButton" type = "SUBMIT">Submit</button>
-            </div>
-          </div>
+
         </div>
         </form>
             <!--Iframe Divs-->

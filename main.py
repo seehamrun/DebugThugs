@@ -1,5 +1,6 @@
 import webapp2
 import jinja2
+from google.appengine.api import users
 import os
 import webbrowser
 
@@ -33,16 +34,18 @@ def storedStuff(typeSelector, item):
 
 class WelcomeHandler(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/index.html')
         self.response.write(response_html.render())
 
-class LoginPageHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.headers['Content-Type'] = 'text/html'
-        response_html = jinja_env.get_template('templates/login.html')
-        self.response.write(response_html.render())
-    #def post(self):
+# class LoginPageHandler(webapp2.RequestHandler):
+#     def get(self):
+#         user = users.get_current_user()
+#         self.response.headers['Content-Type'] = 'text/html'
+#         response_html = jinja_env.get_template('templates/login.html')
+#         self.response.write(response_html.render())
+#     #def post(self):
 
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
@@ -55,7 +58,7 @@ class SearchHandler(webapp2.RequestHandler):
         }
         self.response.write(response_html.render(values))
     def post(self):
-        item = self.request.get('item_id')
+        item = self.request.get('newItem')
         typeSelector = self.request.get('choiceSearch')
         self.response.headers['Content-Type'] = 'text/html'
         print("hello")
@@ -68,9 +71,11 @@ class SearchHandler(webapp2.RequestHandler):
         "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
         }
         self.response.write(response_html.render(values))
+        self.response.write(readfromDatabase())
 
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
         self.response.headers['Content-Type'] = 'text/html'
         self.response.write(readfromDatabase())
 
@@ -92,6 +97,7 @@ class ChecklistHandler(webapp2.RequestHandler):
 
 class DeleteItemHandler(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
         item_to_delete = self.request.get('item_id')
         response_html = jinja_env.get_template("templates/remove.html")
         key = ndb.Key(urlsafe=item_to_delete)
@@ -122,7 +128,6 @@ class DeleteItemHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
-    ('/login', LoginPageHandler),
     ('/search', SearchHandler),
     ('/checklist', ChecklistHandler),
     ('/delete', DeleteItemHandler),
