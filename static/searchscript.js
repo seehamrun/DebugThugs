@@ -60,7 +60,7 @@ function submitClick() {
 
 window.addEventListener('load', () => {
   document.querySelector('#submit').addEventListener("click", submitClick)
-
+  
 });
 //     document.querySelector('#searchButton').addEventListener('click', addItem)
 
@@ -87,10 +87,10 @@ function initMap() {
             map.setCenter(pos);
 
             var service = new google.maps.places.PlacesService(map);
-            service.nearbySearch({
+            service.textSearch({
               location: pos,
               radius: 2000,
-              type: ['store']
+              query: 'retail stores'
             }, callback);
 
           }, function() {
