@@ -11,9 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
     <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
-    <meta name="google-signin-scope" content="profile email">
+    <!-- <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script> -->
   </head>
     <body style="height: 100%;background-position: center; background-repeat: no-repeat; background-size: cover" background='/static/dorm.jpg'>
       <!--Nav Bar-->
@@ -52,15 +52,16 @@
   <div style="border: 3px solid white; margin: auto auto 100px auto;max-width: 700px; background: rgba(255, 255, 255, 0.5); padding-bottom: 50px">
   <img src="/static/icon.png" height="300px" width="300px"  style="display:block; margin: 0 auto"/>
         <h1 style="text-align: center" style="margin-top: 100px">Welcome!</h1>
-        <p style="text-align: center">Our mission:</br> As a team, we hope that we can make the move-in process as smooth as possible for you! Here, we organize your personal room goals and make college shopping a trip! </p>
-
-          <h2 style="text-align: center">Get Started by signing up or logging in!</h2>
+        <h4 style="text-align: center" style="margin-top: 100px">Our Mission</h1>
+        <p style="text-align: center"> As a team, we hope that we can make the move-in process as smooth as possible for you! Here, we organize your personal room goals and make college shopping a trip! </p>
+        <a class="btn btn-primary mx-auto" href="/checklist" role="button" style="width: 175px; display: block">Get Started!</a>
+          <!-- <h2 style="text-align: center">Get Started by signing up or logging in!</h2>
           <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" style="display:flex; justify-content:center"></div>
         </br>
         <a class="btn btn-primary mx-auto" href="/login" role="button" style="width: 175px; display: block">Sign up/Log in</a>
-      </div>
+      </div> -->
       <!--Javascript for google sign in button and sign in-->
-        <script>
+        <!-- <script>
       function onSignIn(googleUser) {
         // Useful data for your client-side scripts:
         var profile = googleUser.getBasicProfile();
@@ -75,6 +76,6 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
       };
-    </script>
+    </script> -->
 </body>
 </html>

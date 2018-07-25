@@ -1,6 +1,10 @@
 import webapp2
 import jinja2
+<<<<<<< HEAD
 import logging
+=======
+from google.appengine.api import users
+>>>>>>> c9341631848bb3f47abb093e5f2bebcf78e006b3
 import os
 import webbrowser
 
@@ -60,6 +64,7 @@ class WelcomeHandler(webapp2.RequestHandler):
 
 class LoginPageHandler(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/login.html')
         self.response.write(response_html.render())
@@ -97,6 +102,7 @@ class SearchHandler(webapp2.RequestHandler):
 
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
         self.response.headers['Content-Type'] = 'text/html'
         self.response.write(readfromDatabase())
 
@@ -122,6 +128,7 @@ class ChecklistHandler(webapp2.RequestHandler):
 
 class DeleteItemHandler(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
         item_to_delete = self.request.get('item_id')
         response_html = jinja_env.get_template("templates/remove.html")
         key = ndb.Key(urlsafe=item_to_delete)
