@@ -106,7 +106,7 @@ class DeleteItemHandler(webapp2.RequestHandler):
         self.redirect("/checklist")
         item = self.request.get('item')
         typeSelector = self.request.get('choice')
-        self.response.headers['Content-Type'] = 'text/html'
+
         storedStuff(typeSelector, item)
         time.sleep(0.5)
         self.response.headers['Content-Type'] = 'text/html'

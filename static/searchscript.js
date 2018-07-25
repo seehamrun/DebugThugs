@@ -56,6 +56,7 @@ function submitClick() {
   document.getElementById("walmart").src ="https://www.walmart.com/search/?query="+ (userInput) +"&cat_id=0"
   queryGiphy(userInput, displayResult)
 }
+
 window.addEventListener('load', () => {
   document.querySelector('#submit').addEventListener("click", submitClick)
 
