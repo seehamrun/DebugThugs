@@ -55,14 +55,14 @@ class SearchHandler(webapp2.RequestHandler):
         }
         self.response.write(response_html.render(values))
     def post(self):
-        item = self.request.get('item_id')
-        typeSelector = self.request.get('choiceSearch')
+        itemSearch = self.request.get('item_id')
+        typeSelectorSearch = self.request.get('choiceSearch')
         self.response.headers['Content-Type'] = 'text/html'
         print("hello")
-        storedStuff(typeSelector, item)
-        time.sleep(0.5)
+        storedStuff(typeSelectorSearch, itemSearch)
+        # time.sleep(0.5)
         response_html = jinja_env.get_template('templates/checklist.html')
-        values= {
+        values = {
         "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
         "needList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need").fetch(),
         "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
