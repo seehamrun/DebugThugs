@@ -48,14 +48,31 @@
             </div>
           </nav>
           <!--Search div-->
+          <form method="post">
         <div class="container no-gutters">
           <div class="row justify-content-center">
             <h1 id= "itemName"> </h1>
           </div>
           <div class="row no-gutters justify-content-center">
             <div class="col">
-            <p><input name="newItem" id="queryBox" type="text" placeholder=" Search " value= {{item_id}}><input id="submit" type="submit"></p>
-
+            <p><input name="newItem" id="queryBox" type="text" placeholder=" Search " value= {{item_id}}>
+              <button id="submit" type="button" class="btn btn-success">Success</button></p>
+              <div>
+                  <div>
+                      <select name= "choiceSearch">
+                        <option selected>Choose...</option>
+                        <option value="want">Still Want!</option>
+                        <option value="need">Still Need!</option>
+                        <option value="bought">I Bought!</option>
+                      </select>
+                  </div>
+                </div>
+              <div>
+                <div>
+                  <button class="btn btn-primary" id="submitButton" type = "SUBMIT">Submit</button>
+                </div>
+              </div>
+            </form>
               <!--Gif result div-->
               <div id="resultPane">
                 <div id="result"></div>
@@ -64,25 +81,6 @@
                 <h5 class="googleMaps">You Can Find Your Item At These Locations</h1>
                 <div id="map"></div>
               </div>
-              <!--Edit category of the list div-->
-              <div>
-              <div>
-                  <select name= "choiceSearch">
-                    <option selected>Choose...</option>
-                    <option value="want">Still Want!</option>
-                    <option value="need">Still Need!</option>
-                    <option value="bought">I Bought!</option>
-                  </select>
-              </div>
-            </div>
-          </fieldset>
-          <div >
-            <div >
-              <button class="btn btn-primary" id="submitButton" type = "SUBMIT">Submit</button>
-            </div>
-          </div>
-        </div>
-        </form>
             <!--Iframe Divs-->
             <div class="col-8">
               <iframe id ="dormify" class= "iFrame" src="https://www.dormify.com/" width="900px" height="400px" align="right"></iframe>
