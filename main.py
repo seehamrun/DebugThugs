@@ -64,6 +64,7 @@ class SearchHandler(webapp2.RequestHandler):
         print("hello")
         storedStuff(typeSelector, item)
         time.sleep(0.5)
+<<<<<<< HEAD
         response_html = jinja_env.get_template('templates/checklist.html')
         values= {
         "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
@@ -72,6 +73,10 @@ class SearchHandler(webapp2.RequestHandler):
         }
         self.response.write(response_html.render(values))
         self.response.write(readfromDatabase())
+=======
+        response_html = jinja_env.get_template('templates/search.html')
+        self.response.write(response_html.render())
+>>>>>>> e28a80eb7f20abb6253b997198b5482df41801dc
 
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
