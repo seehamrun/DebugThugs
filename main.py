@@ -3,7 +3,9 @@ import jinja2
 import os
 import webbrowser
 
+from google.appengine.api import users
 from google.appengine.ext import ndb
+from google.appengine.api import urlfetch
 import api
 import database
 import time
@@ -53,12 +55,12 @@ class SearchHandler(webapp2.RequestHandler):
         }
         self.response.write(response_html.render(values))
     def post(self):
-        item_id = self.request.get('item_id')
-        typeSelector = self.request.get('listBtn')
+        item_id = self.request.get('searchItem')
+        print("GOT POST in SearchHandler: " + item_id)
         self.response.headers['Content-Type'] = 'text/html'
-        storedStuff(typeSelector, item_id)
+        self.response.write(item_id)
+
         time.sleep(0.5)
-        self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/checklist.html')
         values= {
         "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
@@ -104,7 +106,7 @@ class DeleteItemHandler(webapp2.RequestHandler):
         self.redirect("/checklist")
         item = self.request.get('item')
         typeSelector = self.request.get('choice')
-        self.response.headers['Content-Type'] = 'text/html'
+
         storedStuff(typeSelector, item)
         time.sleep(0.5)
         self.response.headers['Content-Type'] = 'text/html'
