@@ -56,10 +56,8 @@ class SearchHandler(webapp2.RequestHandler):
         self.response.write(response_html.render(values))
     def post(self):
         item_id = self.request.get('searchItem')
-        print("GOT POST in SearchHandler: " + item_id)
         self.response.headers['Content-Type'] = 'text/html'
         self.response.write(item_id)
-
         time.sleep(0.5)
         response_html = jinja_env.get_template('templates/checklist.html')
         values= {
