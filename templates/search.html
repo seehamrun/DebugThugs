@@ -19,7 +19,7 @@
 
 
     </head>
-    <body>
+    <body style="background-color: darkgrey">
       <!--Nav Bar-->
       <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
           <a class="navbar-brand" href="/"><img src="/static/icon.png" height=50px width=50px/></a>
@@ -61,15 +61,29 @@
             <p><input name="newItem" id="queryBox" type="text" placeholder=" Search " value= {{item_id}}>
               <button id="submit" type="button" class="btn btn-light">Search</button></p>
               </div>
+              <div class="row" style="margin-left: 20px">
+                  <div>
+                      <select name= "choiceSearch">
+                        <option selected>Choose...</option>
+                        <option value="want">Still Want!</option>
+                        <option value="need">Still Need!</option>
+                        <option value="bought">I Bought!</option>
+                      </select>
+                    </div>
+                  <button class="btn btn-primary" id="submitButton" type = "SUBMIT" style="margin-left: 10px">Submit</button>
+              </div>
+            </div>
             </form>
               <!--Gif result div-->
-              <div id="resultPane">
-                <div id="result"></div>
+              <div id="resultPane" style="float:left">
+                <div id="result" style="float:left"></div>
               </div>
               <div style="float:left">
               <div class="left">
                 <h5 class="googleMaps">You Can Find Your Item At These Locations</h1>
-                <div id="map"></div>
+                <div id="map">
+
+                </div>
               </div>
             <!-- submit to lists -->
             <div>
@@ -87,7 +101,7 @@
             </div>
           </div>
             <!--Iframe Divs-->
-            <div class="col-8" style="float:right">
+            <div class="col" style="float:right">
               <iframe id ="dormify" class= "iFrame" src="https://www.dormify.com/" width="900px" height="400px" align="right"></iframe>
               <iframe id ="walmart" class= "iFrame" src="https://www.walmart.com/" width="900px" height="400px" align="right"></iframe>
               <iframe id ="pottery" class= "iFrame" src="https://www.potterybarn.com/" width="900px" height="400px" align="right"></iframe>
