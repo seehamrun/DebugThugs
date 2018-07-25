@@ -50,6 +50,9 @@ class LoginPageHandler(webapp2.RequestHandler):
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
         itemID = self.request.get("item_id")
+        # user = users.get_current_user()
+        # logging.info('current user is %s' % (user.nickname()))
+        # requestUrl = self.request.get('url')
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/search.html')
         values = {
