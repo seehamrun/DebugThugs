@@ -42,10 +42,6 @@ function displayResult(resultJson) {
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-// function that posts
-function addSearchToLists(listUrl, doneCallBack) {
-  jQuery.post("/checklist", {url: listUrl}, doneCallBack);
-}
 function submitClick() {
   var inputBox = document.querySelector('#queryBox')
   var userInput = inputBox.value
@@ -56,11 +52,10 @@ function submitClick() {
   document.getElementById("walmart").src ="https://www.walmart.com/search/?query="+ (userInput) +"&cat_id=0"
   queryGiphy(userInput, displayResult)
 }
-
 window.addEventListener('load', () => {
   document.querySelector('#submit').addEventListener("click", submitClick)
 
-
+});
 var map, infoWindow;
 function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
