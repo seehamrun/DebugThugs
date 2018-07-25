@@ -5,7 +5,7 @@
 //                   Should take a single argument: the JSON returned from
 //                   giphy's API
 function queryGiphy(query, resultCallback) {
-  var giphy_url = "http://api.giphy.com/v1/gifs/search?"
+  var giphy_url = "https://api.giphy.com/v1/gifs/search?"
                   + "api_key=" + giphy_api_key
                   + "&q=" + query
                   + "&limit=" + 1
@@ -60,7 +60,7 @@ function submitClick() {
 
 window.addEventListener('load', () => {
   document.querySelector('#submit').addEventListener("click", submitClick)
-  
+
 });
 //     document.querySelector('#searchButton').addEventListener('click', addItem)
 
