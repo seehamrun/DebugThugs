@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Computer Science Summer Institute
+        </title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+        <link href="custom.css"rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+        <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+        <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    </head>
+    <body style="height: 100%;background-position: center; background-repeat: no-repeat; background-size: cover" background='/static/dorm2.jpg'>
+      <!--Nav bar-->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+          <a class="navbar-brand" href="/"><img src="/static/icon.png" height=50px width=50px/></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/checklist">Checklist</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/search">Search</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action='/search'method="get">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='item_id'>
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+          <!--Sign up div-->
+                  <div class="shadow p-3 mb-5 bg-gray rounded" width=700px style="float:left; margin: 100px auto auto 250px; background: rgba(255, 255, 255, 0.5)">
+                      <h1 style='text-align: center'>Sign Up!</h1>
+                          <form>
+                              <div class="form-group">
+                                  <label for="exampleInputName1">Name</label>
+                                  <input type="name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter your name">                                </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputUsername1">Username</label>
+                                    <input type="username" class="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp" placeholder="Enter Username">
+                                    <small id="usernameHelp" class="form-text text-muted">Write an awesome name!</small>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleInputPassword1">Re-enter Password</label>
+                                      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                    </div>
+                                  <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                    </div>
+                    <!--Login Div-->
+                  <div class="shadow p-3 mb-5 bg-gray rounded" width=250px style="float:right; margin: 100px 250px auto auto; background: rgba(255, 255, 255, 0.5)">
+                    <h1 style='text-align: center'>Login!</h1>
+                  </br>
+                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" style="display:flex; justify-content:center"></div>
+                  </br>
+                </br>
+                        <form>
+                                <div class="form-group">
+                                  <label for="exampleInputUsername1">Username</label>
+                                  <input type="username" class="form-control" id="exampleInputUsername1" aria-describedby="usernameHelp" placeholder="Enter Username">                                </div>
+                                <div class="form-group">
+                                  <label for="exampleInputPassword1">Password</label>
+                                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </form>
+                  </div>
+      <!--Script for google login button-->
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      };
+    </script>
+
+    </body>
+</html>
