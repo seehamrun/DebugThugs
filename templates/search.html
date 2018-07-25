@@ -65,12 +65,24 @@
                 <div id="map"></div>
               </div>
               <!--Edit category of the list div-->
-              <div class="addToList" id= 'listBtn'>
-                <div><button >Still Need?</button></div>
-                <div style="margin-top:20px;"><button >Still Want?</button></div>
-                <div style="margin-top:20px;"><button >Did you Buy?</button></div>
+              <div>
+              <div>
+                  <select name= "choice">
+                    <option selected>Choose...</option>
+                    <option value="want">Still Want!</option>
+                    <option value="need">Still Need!</option>
+                    <option value="bought">I Bought!</option>
+                  </select>
               </div>
             </div>
+          </fieldset>
+          <div >
+            <div >
+              <button class="btn btn-primary" id="submitButton" type = "SUBMIT">Submit</button>
+            </div>
+          </div>
+        </div>
+        </form>
             <!--Iframe Divs-->
             <div class="col-8">
               <iframe id ="dormify" class= "iFrame" src="https://www.dormify.com/" width="900px" height="400px" align="right"></iframe>

@@ -52,10 +52,21 @@ function submitClick() {
   document.getElementById("walmart").src ="https://www.walmart.com/search/?query="+ (userInput) +"&cat_id=0"
   queryGiphy(userInput, displayResult)
 }
+
+// function addItem(self.request.get('value'), document.getElementById("searchButton").value, doneCallBack) {
+//         jQuery.post("/checklist", {choice: self.request.get('value')} , {item: document.getElementById("searchButton").value}, doneCallBack);
+//       }
+//     })
+
 window.addEventListener('load', () => {
   document.querySelector('#submit').addEventListener("click", submitClick)
 
 });
+//     document.querySelector('#searchButton').addEventListener('click', addItem)
+
+
+
+//changes ends
 var map, infoWindow;
 function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
