@@ -23,17 +23,17 @@ def readfromDatabase():
     user = users.get_current_user()
     logging.info('current user is %s' % (user.nickname()))
     values= {
-    "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
-    "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need").fetch(),
-    "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
+    "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want", database.DatabaseEntry.username == user.nickname()).fetch(),
+    "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need", database.DatabaseEntry.username == user.nickname()).fetch(),
+    "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought", database.DatabaseEntry.username == user.nickname()).fetch(),
     'user_nickname': user.nickname(),
     'logoutUrl': users.create_logout_url('/')
     }
     return response_html.render(values)
 
 # @ndb.transactional
-def storedStuff(typeSelector, item):
-    stored_items = database.DatabaseEntry(type= typeSelector, value= item)
+def storedStuff(user, typeSelector, item):
+    stored_items = database.DatabaseEntry(username=user, type= typeSelector, value= item)
     stored_items.put()
 
 class WelcomeHandler(webapp2.RequestHandler):
@@ -91,7 +91,7 @@ class SearchHandler(webapp2.RequestHandler):
           'user_nickname': user.nickname(),
           'logoutUrl': users.create_logout_url('/'),
         }
-        storedStuff(typeSelector, item)
+        storedStuff(user.nickname(), typeSelector, item)
         time.sleep(0.5)
         response_html = jinja_env.get_template('templates/search.html')
         self.response.write(response_html.render(data))
@@ -103,19 +103,19 @@ class ChecklistHandler(webapp2.RequestHandler):
         self.response.write(readfromDatabase())
 
     def post(self):
+        user = users.get_current_user()
         item = self.request.get('item')
         typeSelector = self.request.get('choice')
         self.response.headers['Content-Type'] = 'text/html'
-        storedStuff(typeSelector, item)
+        storedStuff(user.nickname(), typeSelector, item)
         time.sleep(0.5)
         self.response.headers['Content-Type'] = 'text/html'
-        user = users.get_current_user()
         logging.info('current user is %s' % (user.nickname()))
         response_html = jinja_env.get_template('templates/checklist.html')
         values= {
-        "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
-        "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need").fetch(),
-        "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
+        "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want", database.DatabaseEntry.username == user.nickname()).fetch(),
+        "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need", database.DatabaseEntry.username == user.nickname()).fetch(),
+        "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought", database.DatabaseEntry.username == user.nickname()).fetch(),
         'user_nickname': user.nickname(),
         'logoutUrl': users.create_logout_url('/')
         }
@@ -139,17 +139,16 @@ class DeleteItemHandler(webapp2.RequestHandler):
         self.redirect("/checklist")
         item = self.request.get('item')
         typeSelector = self.request.get('choice')
-
-        storedStuff(typeSelector, item)
+        user = users.get_current_user()
+        storedStuff(user.nickname(), typeSelector, item)
         time.sleep(0.5)
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/checklist.html')
-        user = users.get_current_user()
         logging.info('current user is %s' % (user.nickname()))
         values= {
-        "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
-        "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need").fetch(),
-        "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
+        "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want", database.DatabaseEntry.username == user.nickname()).fetch(),
+        "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need", database.DatabaseEntry.username == user.nickname()).fetch(),
+        "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought", database.DatabaseEntry.username == user.nickname()).fetch(),
         'user_nickname': user.nickname(),
         'logoutUrl': users.create_logout_url('/')
         }
