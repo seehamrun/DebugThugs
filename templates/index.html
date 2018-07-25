@@ -34,9 +34,12 @@
               <a class="nav-link" href="/search">Search</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
+              <a class="nav-link" href="{{logoutUrl}}">{{logout}}</a>
             </li>
           </ul>
+          <span class='navbar-text mx-auto' style="width: 250px">
+            {{user_nickname}}
+          </span>
           <form class="form-inline my-2 my-lg-0" action='/search'method="get">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='item_id'>
             <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
