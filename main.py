@@ -39,13 +39,13 @@ class WelcomeHandler(webapp2.RequestHandler):
         response_html = jinja_env.get_template('templates/index.html')
         self.response.write(response_html.render())
 
-# class LoginPageHandler(webapp2.RequestHandler):
-#     def get(self):
-#         user = users.get_current_user()
-#         self.response.headers['Content-Type'] = 'text/html'
-#         response_html = jinja_env.get_template('templates/login.html')
-#         self.response.write(response_html.render())
-#     #def post(self):
+class LoginPageHandler(webapp2.RequestHandler):
+    def get(self):
+        user = users.get_current_user()
+        self.response.headers['Content-Type'] = 'text/html'
+        response_html = jinja_env.get_template('templates/login.html')
+        self.response.write(response_html.render())
+    #def post(self):
 
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
@@ -64,19 +64,8 @@ class SearchHandler(webapp2.RequestHandler):
         print("hello")
         storedStuff(typeSelector, item)
         time.sleep(0.5)
-<<<<<<< HEAD
-        response_html = jinja_env.get_template('templates/checklist.html')
-        values= {
-        "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
-        "needList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need").fetch(),
-        "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
-        }
-        self.response.write(response_html.render(values))
-        self.response.write(readfromDatabase())
-=======
         response_html = jinja_env.get_template('templates/search.html')
         self.response.write(response_html.render())
->>>>>>> e28a80eb7f20abb6253b997198b5482df41801dc
 
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
@@ -133,6 +122,7 @@ class DeleteItemHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
+    ('/login', LoginPageHandler),
     ('/search', SearchHandler),
     ('/checklist', ChecklistHandler),
     ('/delete', DeleteItemHandler),
