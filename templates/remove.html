@@ -6,6 +6,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
   <style>
+  #yesButton {
+    text-align: center;
+  }
   div {
     border: 1px solid gray;
     padding: 8px;
@@ -18,16 +21,22 @@
       text-align: center;
       text-transform: uppercase;
   }
+  body {
+    background-image: url("https://static1.squarespace.com/static/56c2a124859fd0898f832ec9/t/598f2289914e6bba68a8c789/1502553321242/college+dorm+room?format=750w");
+    width: 100%;
+    height: 500px;
+    /* ("https://i.ytimg.com/vi/7PsmkAxVHdM/maxresdefault.jpg"); */
+  }
   </style>
 </head>
 <body>
 <div class="container">
   <div class="jumbotron">
     <h1 id = "center">Successfully removed!</h1>
-    <p>Would you like to head back to your Checklist and get back to work?</p>
+    <p id = "center">Would you like to head back to your Checklist and get back to work?</p>
   </div>
   <form method= "post">
-  <form>
+  <form id= "center">
 
       <input type="submit" value="Yes">
 
