@@ -7,6 +7,8 @@ handlers:
   static_dir: static
 - url: /
   script: main.app
+- url: /aboutus
+  script: main.app
 - url: /.*
   script: main.app
   login: required
