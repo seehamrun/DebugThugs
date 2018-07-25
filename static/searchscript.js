@@ -56,14 +56,11 @@ function submitClick() {
   document.getElementById("walmart").src ="https://www.walmart.com/search/?query="+ (userInput) +"&cat_id=0"
   queryGiphy(userInput, displayResult)
 }
-function addSearchToList(listUrl, doneCallback) {
-  jQuery.post("/checklist", {url: listUrl}, doneCallback);
-}
+
 window.addEventListener('load', () => {
   document.querySelector('#submit').addEventListener("click", submitClick)
 
 
-});
 var map, infoWindow;
 function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
