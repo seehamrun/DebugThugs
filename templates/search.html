@@ -53,7 +53,7 @@
           <div class="row justify-content-center">
             <h1 id= "itemName"> </h1>
           </div>
-          <div class="row no-gutters justify-content-center">
+          <!-- <div class="row no-gutters justify-content-center"> -->
             <div class="col">
             <p><input name="newItem" id="queryBox" type="text" placeholder=" Search " value= {{item_id}}>
               <button id="submit" type="button" class="btn btn-light">Search</button></p>
@@ -63,7 +63,7 @@
               <div id="resultPane">
                 <div id="result"></div>
               </div>
-              <div>
+              <div style="float:left">
               <div class="left">
                 <h5 class="googleMaps">You Can Find Your Item At These Locations</h1>
                 <div id="map"></div>
@@ -82,6 +82,7 @@
                 <button class="btn btn-primary" id="submitButton" type = "SUBMIT">Submit</button>
               </div>
             </div>
+          </div>
             <!--Iframe Divs-->
             <div class="col-8" style="float:right">
               <iframe id ="dormify" class= "iFrame" src="https://www.dormify.com/" width="900px" height="400px" align="right"></iframe>
@@ -90,7 +91,7 @@
               <iframe id ="dormco" class= "iFrame" src="https://www.dormco.com/" width="900px" height="400px" align="right"></iframe>
             </div>
           </div>
-        </div>
+        <!-- </div> -->
     </body>
 
 </html>
