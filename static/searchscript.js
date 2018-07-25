@@ -20,7 +20,7 @@ function displayResult(resultJson) {
   var resultPaneDiv = document.querySelector('#resultPane')
   var resultDiv = document.querySelector('#result')
 
-  // TODO: instead of just putting the resultJson in the div, parse it and pull
+  // : instead of just putting the resultJson in the div, parse it and pull
   // out the image url, and insert an image tag instead.
   console.log(resultJson)
   console.log(resultJson.data)
@@ -70,15 +70,15 @@ window.addEventListener('load', () => {
 var map, infoWindow;
 function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 41.887327, lng: -87.652370},
+          center: {lat: 41.887246, lng: -87.652370},
           zoom: 12
         });
         infoWindow = new google.maps.InfoWindow;
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
+              lat:  position.coords.latitude,
+              lng:  position.coords.longitude,
             };
 
             infoWindow.setPosition(pos);
@@ -90,7 +90,7 @@ function initMap() {
             service.nearbySearch({
               location: pos,
               radius: 2000,
-              type: ['retail stores near me']
+              type: ['store']
             }, callback);
 
           }, function() {
@@ -120,14 +120,30 @@ function initMap() {
       }
 
       function createMarker(place) {
+        var service = new google.maps.places.PlacesService(map);
+        var infowindow = new google.maps.InfoWindow();
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
           position: place.geometry.location
         });
 
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
-        });
+         service.getDetails({
+         placeId: place.place_id,
+         fields: ['name', 'formatted_address', 'place_id']}, callback)
+
+         function callback(place, status) {
+            google.maps.event.addListener(marker, 'click', function callback() {
+                 infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+                   'Place ID: ' + place.place_id + '<br>' +
+                   place.formatted_address + '</div>');
+                 infowindow.open(map, this);
+               });
+             };
+         // google.maps.event.addListener(marker, 'click', function callback() {
+         //       infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
+         //         'Place ID: ' + place.place_id + '<br>' +
+         //         place.formatted_address + '</div>');
+         //       infowindow.open(map, this);
+         //     });
       }
