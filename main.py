@@ -1,6 +1,6 @@
 import webapp2
 import jinja2
-from google.appengine.api import users
+import logging
 import os
 import webbrowser
 
@@ -20,10 +20,14 @@ jinja_env = jinja2.Environment(
 # @ndb.transactional
 def readfromDatabase():
     response_html = jinja_env.get_template('templates/checklist.html')
+    user = users.get_current_user()
+    logging.info('current user is %s' % (user.nickname()))
     values= {
     "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
     "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need").fetch(),
     "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
+    'user_nickname': user.nickname(),
+    'logoutUrl': users.create_logout_url('/')
     }
     return response_html.render(values)
 
@@ -37,7 +41,22 @@ class WelcomeHandler(webapp2.RequestHandler):
         user = users.get_current_user()
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/index.html')
-        self.response.write(response_html.render())
+        if user != None:
+            user = users.get_current_user()
+            logging.info('current user is %s' % (user.nickname()))
+            logout = ''
+            if user == '':
+                logout = ''
+            else:
+                logout = 'Log out'
+            data = {
+            'user_nickname': user.nickname(),
+            'logoutUrl': users.create_logout_url('/'),
+            'logout': logout
+            }
+            self.response.write(response_html.render(data))
+        else:
+            self.response.write(response_html.render())
 
 class LoginPageHandler(webapp2.RequestHandler):
     def get(self):
@@ -50,14 +69,15 @@ class LoginPageHandler(webapp2.RequestHandler):
 class SearchHandler(webapp2.RequestHandler):
     def get(self):
         itemID = self.request.get("item_id")
-        # user = users.get_current_user()
-        # logging.info('current user is %s' % (user.nickname()))
-        # requestUrl = self.request.get('url')
+        user = users.get_current_user()
+        logging.info('current user is %s' % (user.nickname()))
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/search.html')
         values = {
         "item_id": itemID,
         "googleApi" : api.googleApi,
+        'user_nickname': user.nickname(),
+        'logoutUrl': users.create_logout_url('/'),
         }
         self.response.write(response_html.render(values))
     def post(self):
@@ -65,10 +85,16 @@ class SearchHandler(webapp2.RequestHandler):
         typeSelector = self.request.get('choiceSearch')
         self.response.headers['Content-Type'] = 'text/html'
         print("hello")
+        user = users.get_current_user()
+        logging.info('current user is %s' % (user.nickname()))
+        data = {
+          'user_nickname': user.nickname(),
+          'logoutUrl': users.create_logout_url('/'),
+        }
         storedStuff(typeSelector, item)
         time.sleep(0.5)
         response_html = jinja_env.get_template('templates/search.html')
-        self.response.write(response_html.render())
+        self.response.write(response_html.render(data))
 
 class ChecklistHandler(webapp2.RequestHandler):
     def get(self):
@@ -83,11 +109,15 @@ class ChecklistHandler(webapp2.RequestHandler):
         storedStuff(typeSelector, item)
         time.sleep(0.5)
         self.response.headers['Content-Type'] = 'text/html'
+        user = users.get_current_user()
+        logging.info('current user is %s' % (user.nickname()))
         response_html = jinja_env.get_template('templates/checklist.html')
         values= {
         "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
         "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need").fetch(),
         "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
+        'user_nickname': user.nickname(),
+        'logoutUrl': users.create_logout_url('/')
         }
         self.response.write(response_html.render(values))
 
@@ -114,10 +144,14 @@ class DeleteItemHandler(webapp2.RequestHandler):
         time.sleep(0.5)
         self.response.headers['Content-Type'] = 'text/html'
         response_html = jinja_env.get_template('templates/checklist.html')
+        user = users.get_current_user()
+        logging.info('current user is %s' % (user.nickname()))
         values= {
         "wantsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "want").fetch(),
         "needsList": database.DatabaseEntry.query(database.DatabaseEntry.type == "need").fetch(),
         "boughtList": database.DatabaseEntry.query(database.DatabaseEntry.type == "bought").fetch(),
+        'user_nickname': user.nickname(),
+        'logoutUrl': users.create_logout_url('/')
         }
         self.response.write(response_html.render(values))
 

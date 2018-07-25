@@ -21,32 +21,35 @@
     </head>
     <body>
       <!--Nav Bar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-            <a class="navbar-brand" href="/"><img src="/static/icon.png" height=50px width=50px/></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/checklist">Checklist</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/search">Search</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/login">Login</a>
-                </li>
-              </ul>
-              <form class="form-inline my-2 my-lg-0" action='/search'method="get">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='item_id'>
-                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-              </form>
-            </div>
-          </nav>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+          <a class="navbar-brand" href="/"><img src="/static/icon.png" height=50px width=50px/></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/checklist">Checklist</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/search">Search</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{logoutUrl}}">Logout</a>
+              </li>
+            </ul>
+            <span class='navbar-text mx-auto' style="width: 250px">
+              {{user_nickname}}
+            </span>
+            <form class="form-inline my-2 my-lg-0" action='/search'method="get">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='item_id'>
+              <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
           <!--Search div-->
           <form method="post">
         <div class="container no-gutters">
