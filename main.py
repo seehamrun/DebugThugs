@@ -1,10 +1,6 @@
 import webapp2
 import jinja2
-<<<<<<< HEAD
 import logging
-=======
-from google.appengine.api import users
->>>>>>> c9341631848bb3f47abb093e5f2bebcf78e006b3
 import os
 import webbrowser
 
