@@ -39,11 +39,11 @@ class WelcomeHandler(webapp2.RequestHandler):
         response_html = jinja_env.get_template('templates/index.html')
         self.response.write(response_html.render())
 
-class LoginPageHandler(webapp2.RequestHandler):
+class AboutUsPageHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
         self.response.headers['Content-Type'] = 'text/html'
-        response_html = jinja_env.get_template('templates/login.html')
+        response_html = jinja_env.get_template('templates/aboutus.html')
         self.response.write(response_html.render())
     #def post(self):
 
@@ -125,7 +125,7 @@ class DeleteItemHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', WelcomeHandler),
-    ('/login', LoginPageHandler),
+    ('/aboutus', AboutUsPageHandler),
     ('/search', SearchHandler),
     ('/checklist', ChecklistHandler),
     ('/delete', DeleteItemHandler),
