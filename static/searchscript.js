@@ -60,8 +60,14 @@ function submitClick() {
 
 window.addEventListener('load', () => {
   document.querySelector('#submit').addEventListener("click", submitClick)
-
+  document.addEventListener('keypress', function (e) {
+    var key = e.which || e.keyCode;
+    if (key === 13) { // 13 is enter
+      submitClick
+    }
 });
+});
+
 //     document.querySelector('#searchButton').addEventListener('click', addItem)
 
 
