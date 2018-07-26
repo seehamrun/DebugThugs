@@ -4,6 +4,12 @@
 // - resultCallback: a function to call when the results are available.
 //                   Should take a single argument: the JSON returned from
 //                   giphy's API
+// Runs the given query and fetches the first result.
+// Args:
+// - query: the string to use for the query.
+// - resultCallback: a function to call when the results are available.
+//                   Should take a single argument: the JSON returned from
+//                   giphy's API
 function queryGiphy(query, resultCallback) {
   var giphy_url = "https://api.giphy.com/v1/gifs/search?"
                   + "api_key=" + giphy_api_key
@@ -62,7 +68,6 @@ window.addEventListener('load', () => {
   document.querySelector('#submit').addEventListener("click", submitClick)
 
 });
-
 //     document.querySelector('#searchButton').addEventListener('click', addItem)
 
 
