@@ -56,7 +56,7 @@ function submitClick() {
   document.getElementById("dormify").src ="https://www.dormify.com/search?q=" + (userInput)
   document.getElementById("dormco").src ="https://www.dormco.com/SearchResults.asp?Search=" + (userInput) + "&Submit="
   document.getElementById("walmart").src ="https://www.walmart.com/search/?query="+ (userInput) +"&cat_id=0"
-  queryGiphy(userInput, displayResult)
+  // queryGiphy(userInput, displayResult)
 }
 
 // function addItem(self.request.get('value'), document.getElementById("searchButton").value, doneCallBack) {
